@@ -26,7 +26,6 @@ vignettes/*.pdf
 .Rproj.user
 packrat/lib*/
 packrat/src/
-
 *.lock
 *.Rproj
 *.Rprofile

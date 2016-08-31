@@ -4,7 +4,7 @@
 # This code, written by Juan C. Lopez Tavera (jc@jaidata.com)
 # is licensed under a Creative Commons Attribution 4.0 International License
 
-setwd("/Users/mbp/Google Drive/jai-internal/teams/analysis/medstudents-depression")
+# setwd("set your path")
 
 raw.data <-
   read.csv(
