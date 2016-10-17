@@ -16,7 +16,7 @@ raw.data <-
 
 data <-
   na.omit(raw.data) # Removing NAs from the original dataset
-#new dataset, NAs removed; n2 = 757#
+#new dataset, NAs removed = 26; n2 = 757#
 
 ## Setting the variables
 ### Body Mass Index (bmi)
@@ -97,20 +97,15 @@ sleepy <- cut(
 sleepy <-
   as.numeric(sleepy) - 1 # because default levels = {1,2}
 
-# In the next 14 lines, I'm going to be zero neat #
-data[,c(6:14, 17:23, 26:33)] <- NULL
+## Deleting the old raw variables
+data[, c(6:14, 17:23, 26:33)] <- NULL
 
-attach(data)
-bool.data <- cbind.data.frame(depression,  suicidal, prev_depression_dx, prev_depression_rx, anxiety, prev_anxiety_dx, prev_anxiety_rx, overweight, sleepy)
-data[,4:9] <- NULL
-factor.data <- cbind.data.frame(sex, who.bmi)
-data[,c(3,5)] <- NULL
+## Appending the new variables
+data <-
+  cbind.data.frame(data, depression, anxiety, overweight, sleepy, suicidal)
 
-detach(data)
-num.data <- data
-attach(num.data)
-attach(bool.data)
-attach(factor.data)
+rm(depression, anxiety, overweight, sleepy, suicidal, raw.data, i) # keeping the environment clean #
 
-rm(data, raw.data, i, depression,  suicidal, anxiety, overweight, sleepy)
-
+# Tidy dataset, ready to go!
+dput(data, file = "medstuds-depranx-data.csv")
+dump("data", file = "medstuds-depranx-dumpeddata.R")
