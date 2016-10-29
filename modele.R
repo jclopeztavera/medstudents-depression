@@ -1,8 +1,6 @@
 # Data Analysis of Mexican Medical Students' PHQ-9/GAD-7/Epworth Data
 # Part 3: Statistical inference and modeling
-# Juan C. Lopez Tavera (jclopeztavera)
-# This code, written by Juan C. Lopez Tavera (jc.lopeztavera@gmail.com)
-# is licensed under a Creative Commons Attribution 4.0 International License
+# This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
 
 # Sourcing the data as an R object
 source("medstuds-depranx-dumpeddata.R")

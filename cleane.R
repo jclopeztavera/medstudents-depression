@@ -1,8 +1,6 @@
 # Data Analysis of Mexican Medical Students' PHQ-9/GAD-7/Epworth Data
 # Part 1: Getting, Cleaning, and Preparing the Dataset
-# Juan C. Lopez Tavera (jclopeztavera)
-# This code, written by Juan C. Lopez Tavera (jc.lopeztavera@gmail.com)
-# is licensed under a Creative Commons Attribution 4.0 International License
+# This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
 
 # setwd("set your path")
 
