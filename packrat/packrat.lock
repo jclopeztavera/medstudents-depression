@@ -1,6 +1,6 @@
 PackratFormat: 1.4
 PackratVersion: 0.4.7.1
-RVersion: 3.3.1
+RVersion: 3.3.0
 Repos: CRAN=https://cran.rstudio.com/
 
 Package: mnormt
@@ -15,6 +15,6 @@ Hash: 16ca16d36eb18d1d16113606ecc5c400
 
 Package: psych
 Source: CRAN
-Version: 1.6.6
-Hash: fad45838f7087591ba4d213adef62d8c
+Version: 1.6.9
+Hash: 663c0ab3af51e3b685a10d7d12d7078f
 Requires: mnormt
