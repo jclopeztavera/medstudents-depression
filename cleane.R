@@ -33,7 +33,7 @@ data$who.bmi <- cut(
 overweight <-
   rep(0, length(data$bmi)) # 0s variable of length == length(bmi)
 for (i in 1:length(overweight)) {
-  if (data$bmi[i] >= 24.01) {
+  if (data$bmi[i] >= 25) {
     # 24 is still considered normal weight, as of 2016
     overweight[i] <- 1
   }
@@ -106,4 +106,4 @@ rm(depression, anxiety, overweight, sleepy, suicidal, raw.data, i) # keeping the
 
 # Tidy dataset, ready to go!
 dput(data, file = "medstuds-depranx-data.csv")
-dump("data", file = "medstuds-depranx-dumpeddata.R")
+# dump("data", file = "medstuds-depranx-dumpeddata.R") # uncomment for R-formatted data

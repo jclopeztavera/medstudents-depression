@@ -3,25 +3,77 @@
 # This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
 
 ## Installing and loading needed packages
-if(!require(psych)) {
+if (!require(psych)) {
   install.packages("psych")
 }
 library(psych)
 
-## Basic Descriptive Statistics
+## Basic-general Descriptive Statistics
+str(data)
 summary(data)
 describe(data)
 
-#Let's make it all numeric
-num.data <- matrix()
-  for (i in 1:ncol(data)) {
-    y <- as.numeric(unlist(data[i])) - 1 #female -> 0 male -> 1, heforshe
-    num.data <- rbind(num.data, y)
-    rm(y)
+## Found that min(age) == 12, which is nonsense.
+data[which.min(data$age), ] # note that, for this observation, year == 3;
+
+## imputting the mean age of the observations that satisfy year == 3
+data[which.min(data$age), ]$age <-
+  tapply(age, year, mean)[data[which.min(data$age), ]$year]
+summary(data$age) # looking good
+
+attach(data) # for ease of typing
+
+### Description of Demographics Data
+tapply(age, sex, mean) # age by gender
+round(tapply(age, year, mean)) # rounded mean age by shool year
+tapply(sex, year, summary) # counts of binary gender by school year
+
+### Description Depression and Suicidal Tendencies Data
+sum(depression) # depressed people
+tapply(depression, sex, sum) # depressed people by gender
+tapply(depression, who.bmi, sum) # depressed people by WHO-BMI category
+tapply(depression, year, sum) # depressed people by school year
+sum(suicidal) # suicidal people
+tapply(suicidal, sex, sum) # suicidal people by gender
+tapply(suicidal, who.bmi, sum) # suicidal people by WHO-BMI category
+tapply(suicidal, year, sum) # suicidal people by school year
+
+### Description of Anxiety Data
+sum(anxiety) # anxious people
+tapply(anxiety, sex, sum) # anxious people by gender
+tapply(anxiety, who.bmi, sum) # anxious people by WHO-BMI category
+tapply(anxiety, year, sum) # suicidal people by school year
+
+### Description of Body-mass Index Data
+sum(overweight) # all people
+sum(who.bmi == "obese") # obese people
+round(tapply(bmi, sex, mean), 2) # rounded mean BMI by gender
+round(tapply(bmi, who.bmi, mean), 2) # rounded mean BMI by WHO-BMI category
+round(tapply(bmi, year, mean), 2) # rounded mean BMI by year
+round(tapply(bmi, depression, mean), 2) # rounded mean BMI by depression state
+round(tapply(bmi, anxiety, mean), 2) # rounded mean BMI by anxiety state
+
+### Description of control variables
+
+### Exploring distributions
+ is.normal <- function(x) {
+  z <- lapply(x[sapply(x, is.numeric)], shapiro.test)
+  for (i in 1:length(z)) {
+    if (z[[i]]$p.value >= 0.1) {
+      message(paste(names(z[i]), "has a normal distribution"))
+    } else {
+      message(paste(names(z[i]), "has a non-normal distribution"))
+    }
+  }
+ }
+### now, graphically
+
+
+
+    if (z[[i]]$p.value >= 0.1) {
+      message(paste(names(z[i]), "has a normal distribution"))
+    } else {
+      message(paste(names(z[i]), "has a non-normal distribution"))
+    }
   }
 
-## Q-Q plots for testing distributions
-
-
-
-¡
