@@ -17,6 +17,6 @@ reality_check <- formula(depression ~ anxiety) # depression and anxiety should b
 hyp1 <- formula(depression + anxiety ~ sex + age + bmi) # main hypothesis
 hyp2 <- formula(depression + anxiety ~ sex:age + sex:bmi + age:bmi + sex:age:bmi) # secondary hypothesis
 
-rc.model <- glm(reallity_check, family = quasibinomial(link = "logit"), data = train)
+rc.model <- glm(reality_check, family = quasibinomial(link = "logit"), data = train)
 
 
