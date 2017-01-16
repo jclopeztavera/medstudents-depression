@@ -104,6 +104,17 @@ data <-
 
 rm(depression, anxiety, overweight, sleepy, suicidal, raw.data, i) # keeping the environment clean #
 
+summary(data)
+
+## Found that min(age) == 12, which is nonsense.
+data[which.min(data$age), ] # note that, for this observation, year == 3;
+
+## imputting the mean age of the observations that satisfy year == 3
+data[which.min(data$age), ]$age <-
+  tapply(data$age, data$year, mean)[data[which.min(data$age), ]$year]
+
+summary(data) # looking good
+
 # Tidy dataset, ready to go!
 dput(data, file = "medstuds-depranx-data.csv")
 # dump("data", file = "medstuds-depranx-dumpeddata.R") # uncomment for R-formatted data
