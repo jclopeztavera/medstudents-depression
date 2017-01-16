@@ -13,14 +13,6 @@ str(data)
 summary(data)
 describe(data)
 
-## Found that min(age) == 12, which is nonsense.
-data[which.min(data$age), ] # note that, for this observation, year == 3;
-
-## imputting the mean age of the observations that satisfy year == 3
-data[which.min(data$age), ]$age <-
-  tapply(age, year, mean)[data[which.min(data$age), ]$year]
-summary(data$age) # looking good
-
 attach(data) # for ease of typing
 
 ### Description of Demographics Data
@@ -55,8 +47,9 @@ round(tapply(bmi, anxiety, mean), 2) # rounded mean BMI by anxiety state
 
 ### Description of control variables
 
+
 ### Exploring distributions
- is.normal <- function(x) {
+is.normal <- function(x) {
   z <- lapply(x[sapply(x, is.numeric)], shapiro.test)
   for (i in 1:length(z)) {
     if (z[[i]]$p.value >= 0.1) {
@@ -65,15 +58,6 @@ round(tapply(bmi, anxiety, mean), 2) # rounded mean BMI by anxiety state
       message(paste(names(z[i]), "has a non-normal distribution"))
     }
   }
- }
-### now, graphically
+}
 
-
-
-    if (z[[i]]$p.value >= 0.1) {
-      message(paste(names(z[i]), "has a normal distribution"))
-    } else {
-      message(paste(names(z[i]), "has a non-normal distribution"))
-    }
-  }
-
+is.normal(data) # all variables have non-normal distributions
