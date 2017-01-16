@@ -13,9 +13,10 @@ sub <- sample(nrow(data), floor(nrow(data) * 0.8))
 train <- data[sub,]
 test <- data[-sub,]
 
-reallity_check <- formula(depression ~ anxiety)
-hyp1 <- formula(depression + anxiety ~ sex + age + bmi)
-hyp2 <- formula(depression + anxiety ~ sex:age + sex:bmi + age:bmi + sex:age:bmi)
+reality_check <- formula(depression ~ anxiety) # depression and anxiety should be highly correlated
+hyp1 <- formula(depression + anxiety ~ sex + age + bmi) # main hypothesis
+hyp2 <- formula(depression + anxiety ~ sex:age + sex:bmi + age:bmi + sex:age:bmi) # secondary hypothesis
 
 rc.model <- glm(reallity_check, family = quasibinomial(link = "logit"), data = train)
-lm(rc.model$linear.predictors ~
+
+
