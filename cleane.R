@@ -10,11 +10,11 @@ raw.data <-
     header = TRUE,
     sep = ","
   )
-#raw dataset, n = 783#
+# raw dataset, n = 783#
 
 data <-
   na.omit(raw.data) # Removing NAs from the original dataset
-#new dataset, NAs removed = 26; n2 = 757#
+# new dataset, NAs removed = 26; n2 = 757
 
 ## Setting the variables
 ### Body Mass Index (bmi)
@@ -107,14 +107,14 @@ rm(depression, anxiety, overweight, sleepy, suicidal, raw.data, i) # keeping the
 summary(data)
 
 ## Found that min(age) == 12, which is nonsense.
-data[which.min(data$age), ] # note that, for this observation, year == 3;
+data[which.min(data$age),] # note that, for this observation, year == 3;
 
 ## imputting the mean age of the observations that satisfy year == 3
-data[which.min(data$age), ]$age <-
-  tapply(data$age, data$year, mean)[data[which.min(data$age), ]$year]
+data[which.min(data$age),]$age <-
+  tapply(data$age, data$year, mean)[data[which.min(data$age),]$year]
 
 summary(data) # looking good
 
 # Tidy dataset, ready to go!
-dput(data, file = "medstuds-depranx-data.csv")
-# dump("data", file = "medstuds-depranx-dumpeddata.R") # uncomment for R-formatted data
+write.csv(data, file = "medstuds-depranx-data.csv", row.names = FALSE)
+#dump("data", file = "medstuds-depranx-dumpeddata.R") # uncomment for R-formatted data
