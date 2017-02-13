@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.com/jclopeztavera/medstudents-depression.svg?token=cqU23G32j8qWjGdX4qLp&branch=master)](https://travis-ci.com/jclopeztavera/medstudents-depression)
-
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/jclopeztavera/medstudents-depression/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
