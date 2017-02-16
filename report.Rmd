@@ -28,7 +28,7 @@ If we could reject the null hypothesis, this study would strengthen the availabl
 
 Testh bot, the hypothesis and the null hypothesis to strenght the available evidence stating that overweight and obesity are correlated to depression and anxiety. 
 
-# Methods and Findings
+# Methods
 
 * Describe the study participants or what was studied (e.g., patient population, cell lines; be as specific as possible, including numbers of individuals studied). Describe the study design, intervention if applicable, main methods used, primary outcome measure(s), and length of follow up if applicable.
 
@@ -75,6 +75,11 @@ Response bias is a general term for a wide range of cognitive biases that influe
 ### Survivorship bias 
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
+```{r}
+plot(md_plot)
+```
+
+
 ## Study size
 
 Explain how the study size was arrived at
@@ -99,7 +104,65 @@ For observational studies, authors are required to clearly specify (a) What spec
 
 (f) Technical details of the analysis
 
-## Conclusions
+# Results
+
+During fall 2014, we collected mental health data and sociodemographic survey data from Medical students enrolled at Universidad Autónoma de Guadalajara —a large private university that offers one of the oldest Medical School programmes in the country. 
+
+We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
+
+The Results section should include all primary and secondary outcome measures analyzed. The section may be divided into subsections, each with a concise subheading. Tables and figures central to the study should be included in the main paper. The Results section should be written in past tense.
+
+PLOS journals require authors to make all data underlying the findings described in their manuscript fully available without restriction, with rare exception.
+
+Large data sets, including raw data, may be deposited in an appropriate public repository. [See our list of recommended repositories.](http://journals.plos.org/plosmedicine/s/data-availability#loc-recommended-repositories)
+
+For smaller data sets and certain data types, authors may provide their data within [Supporting Information files ](http://journals.plos.org/plosmedicine/s/supporting-information)accompanying the manuscript. Authors should take care to maximize the accessibility and reusability of the data by selecting a file format from which data can be efficiently extracted (for example, spreadsheets or flat files should be provided rather than PDFs when providing tabulated data).
+
+*Give numeric results not only as derivatives (for example, percentages) but also as the absolute numbers from which the derivatives were calculated, and specify the statistical significance attached to them, if any. Restrict tables and figures to those needed to explain the argument of the paper and to assess supporting data. Use graphs as an alternative to tables with many entries; do not duplicate data in graphs and tables. Avoid nontechnical uses of technical terms in statistics, such as "random" (which implies a randomizing device), “normal,” “significant,” “correlations,” and “sample.”*
+
+## Participants
+
+(a) Report numbers of individuals at each stage of study—eg numbers potentially eligible, examined for eligibility, confirmed eligible, included in the study, completing follow-up, and analysed
+
+(b) Give reasons for non-participation at each stage
+
+(c) Consider use of a flow diagram
+
+## Descriptive data
+
+(a) Give characteristics of study participants (eg demographic, clinical, social) and information on exposures and potential confounders
+
+(b) Indicate number of participants with missing data for each variable of interest
+
+## Depressive disorders data
+
+```{r}
+plot(ddp)
+```
+
+
+## Anxiety disorders data
+
+```{r}
+plot(gdp)
+```
+
+
+
+## Main results
+
+(a) Give unadjusted estimates and, if applicable, confounder-adjusted estimates and their precision (eg, 95% confidence interval). Make clear which confounders were adjusted for and why they were included
+
+(b) Report category boundaries when continuous variables were categorized
+
+(c) If relevant, consider translating estimates of relative risk into absolute risk for a meaningful time period
+
+## Other analyses
+
+Report other analyses done—eg analyses of subgroups and interactions, and sensitivity analyses
+
+
+# Conclusions
 
 * Provide a general interpretation of the results with any important recommendations for future research.
 

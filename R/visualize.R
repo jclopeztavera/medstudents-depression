@@ -58,6 +58,7 @@ md_plot <-
     gap = 3,
     ylab = c("Histogram of missing data", "Pattern of missing data")
   )
+par(lty = 1)
 
 ddp <-
   ggplot(
@@ -78,7 +79,6 @@ gdp <-  ggplot(
     data = data,
     mapping = aes(x = gad.score, fill = gad.scale, colour = gad.scale)
   )
-
 gdp <- gdp +
   geom_density(alpha = 0.5) + theme_bw() +
   scale_fill_ptol(name = "Anxiety Severity") +
