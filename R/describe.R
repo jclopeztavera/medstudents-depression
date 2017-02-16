@@ -8,6 +8,9 @@ if (!require(psych)) {
 }
 library(psych)
 
+## Loading data
+source('~/github/medstudents-depression/data/medstuds-depranx-dumpeddata.R')
+
 ## Basic-general Descriptive Statistics
 str(data)
 summary(data)

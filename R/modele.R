@@ -3,7 +3,7 @@
 # This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
 
 # Sourcing the data as an R object
-source("medstuds-depranx-dumpeddata.R")
+source('~/github/medstudents-depression/data/medstuds-depranx-dumpeddata.R')
 
 attach(data)
 
