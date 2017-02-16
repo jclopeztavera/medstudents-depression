@@ -132,5 +132,7 @@ data$sleepy <-
   as.numeric(data$epw.scale) - 1 # because default levels = {1,2}
 
 # Tidy dataset, ready to go!
-write.csv(data, file = "~/github/medstudents-depression/data/processed/medstudents-depression.csv", row.names = FALSE)
-dump("data", file = "~/github/medstudents-depression/data/processed/medstudents-depression.R") # uncomment for R-formatted data
+#write.csv(data, file = "~/github/medstudents-depression/data/processed/medstudents-depression.csv", row.names = FALSE)
+#dump("data", file = "~/github/medstudents-depression/data/processed/medstudents-depression.R") # uncomment for R-formatted data
+
+rm(i, loader)
