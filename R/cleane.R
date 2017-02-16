@@ -7,8 +7,9 @@ rm(list = ls())
 source('~/github/medstudents-depression/R/loader.R')
 loader("readr", "dplyr")
 
-raw_data <-
-  read_csv("https://files.figshare.com/1893389/depression_data.csv")
+#raw_data <- read_csv("https://files.figshare.com/1893389/depression_data.csv")
+
+raw_data <- read_csv("~/github/medstudents-depression/data/raw/medstudents-depression-raw.csv")
 
 ## Found that min(age) == 12, which is nonsense;
 ## imputting the mean age of the observations that satisfy year == 3
@@ -135,4 +136,4 @@ data$sleepy <-
 #write.csv(data, file = "~/github/medstudents-depression/data/processed/medstudents-depression.csv", row.names = FALSE)
 #dump("data", file = "~/github/medstudents-depression/data/processed/medstudents-depression.R") # uncomment for R-formatted data
 
-rm(i, loader)
+rm(i, loader, raw_data)
