@@ -66,8 +66,8 @@ ddp <-
     mapping = aes(x = phq.score, fill = phq.scale, colour = phq.scale)
   )
 ddp <- ddp +
-  geom_density(alpha = 0.5) +
-  theme_bw() +
+  geom_density(alpha = 0.5, adjust = 1.5) +
+  theme_base() +
   scale_fill_ptol(name = "Depression Severity") +
   scale_color_ptol(name = "Depression Severity") +
   labs(
@@ -80,7 +80,7 @@ gdp <-  ggplot(
     mapping = aes(x = gad.score, fill = gad.scale, colour = gad.scale)
   )
 gdp <- gdp +
-  geom_density(alpha = 0.5) + theme_bw() +
+  geom_density(alpha = 0.5, adjust = 1.5) + theme_base() +
   scale_fill_ptol(name = "Anxiety Severity") +
   scale_color_ptol(name = "Anxiety Severity") +
   labs(
