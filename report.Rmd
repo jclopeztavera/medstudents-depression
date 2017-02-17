@@ -1,8 +1,19 @@
 ---
 title: "Depression in Medical Students: Analyses Report "
 author: Juan C. López Tavera
-output: html_notebook
+output: 
+  html_document: 
+    keep_md: yes
+    theme: cosmo
 ---
+
+```{r settings, include=FALSE, warning=FALSE}
+source('~/github/medstudents-depression/R/loader.R')
+source('~/github/medstudents-depression/data/processed/medstudents-depression.R')
+loader("VIM", "ggplot2", "readr", "ggthemes", "knitr")
+
+```
+
 
 ## Background
 
@@ -75,14 +86,26 @@ Response bias is a general term for a wide range of cognitive biases that influe
 ### Survivorship bias 
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-```{r}
-plot(md_plot)
+```{r, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
+par(mar=c(2,2,2,2), lty = 0)
+  VIM::aggr(x = raw_data,
+    col = c('powderblue', 'tomato1'),
+    numbers = TRUE,
+    sortVars = FALSE,
+    labels = names(raw_data),
+    cex.axis = .5,
+    gap = 3,
+    ylab = c("Histogram of missing data", "Pattern of missing data")
+  )
+  
 ```
 
 
 ## Study size
 
-Explain how the study size was arrived at
+Explain how the study size was arrived at 1376 
+
+
 
 ## Quantitative variables
 
@@ -136,15 +159,43 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 ## Depressive disorders data
 
-```{r}
-plot(ddp)
+```{r, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
+par(mar=c(2,2,2,2))
+ddp <-
+  ggplot(
+    data = data,
+    mapping = aes(x = phq.score, fill = phq.scale, colour = phq.scale)
+  )
+ddp <- ddp +
+  geom_density(alpha = 0.5, adjust = 1.5) +
+  theme_base() +
+  scale_fill_ptol(name = "Depression Severity") +
+  scale_color_ptol(name = "Depression Severity") +
+  labs(
+    list(title = "Distribution of PHQ-9 Scores by Depression Severity", x = "PHQ-9 Score", y = "Density")
+  ) +
+  expand_limits(x = c(0,27))
+ddp
+
 ```
 
 
 ## Anxiety disorders data
 
-```{r}
-plot(gdp)
+```{r, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
+gdp <-  ggplot(
+    data = data,
+    mapping = aes(x = gad.score, fill = gad.scale, colour = gad.scale)
+  )
+gdp <- gdp +
+  geom_density(alpha = 0.5, adjust = 1.5) + theme_base() +
+  scale_fill_ptol(name = "Anxiety Severity") +
+  scale_color_ptol(name = "Anxiety Severity") +
+  labs(
+    list(title = "Distribution of GAD-7 Scores by Anxiety Severity", x = "GAD-7 Score", y = "Density")
+  ) + expand_limits(x = c(0,21))
+gdp
+
 ```
 
 
