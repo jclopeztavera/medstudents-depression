@@ -38,7 +38,9 @@ In this report, I'm going to focus on casually communicating what we found, whic
 
 * Describe the main limitations of the study.
 
-Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). Define statistical terms, abbreviations, and most symbols. Specify the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
+Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). 
+
+We used R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-apple-darwin13.4.0 (64-bit) platform.  the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
 
 ## Ethics Statement
 
@@ -73,8 +75,8 @@ Response bias is a general term for a wide range of cognitive biases that influe
 ### Survivorship bias
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-```{r NA distribution within the dataset, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center'}
-par(mar=c(2,2,2,2), lty = 0)
+```{r NA distribution, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
+par(mar = c(2,2,2,2), lty = 0)
   VIM::aggr(x = raw_data,
     col = c('powderblue', 'tomato1'),
     numbers = TRUE,
@@ -147,7 +149,6 @@ For smaller data sets and certain data types, authors may provide their data wit
 ## Depressive disorders data
 
 ```{r Depression density scaled by severity, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
-par(mar=c(2,2,2,2))
 ddp <-
   ggplot(
     data = data,
@@ -161,7 +162,8 @@ ddp <- ddp +
   labs(
     list(title = "Distribution of PHQ-9 Scores by Depression Severity", x = "PHQ-9 Score", y = "Density")
   ) +
-  expand_limits(x = c(0,27))
+  expand_limits(x = c(0,27)) 
+                                     
 ddp
 
 ```
@@ -202,6 +204,5 @@ Report other analyses done—eg analyses of subgroups and interactions, and sens
 
 # Conclusions
 
-* Provide a general interpretation of the results with any important recommendations for future research.
+Interpretation of the results with any important recommendations for future research.
 
-* [For a clinical trial, provide any trial identification number(s) and name(s) (e.g., trial registration number, protocol number or acronym).]

@@ -1,38 +1,25 @@
 ---
-title: "Depression in Medical Students: Analyses Report "
+title: "Depression and Anxiety in Medical Students: Analyses Report "
 author: Juan C. López Tavera
-output: 
-  html_document: 
+output:
+  html_document:
     keep_md: yes
     theme: cosmo
 ---
 
 
 
+## Background and Objectives
 
-## Background
+There's no health without mental health; especially since mental illnesses account for one of the leading --if not the leading-- causes of years lived with disability across the globe. Yet, the burden of mental health is often underestimated.
 
-Overweight and obesity have become a major global health challenge. According to the World Health Organiztion (WHO), adults with a body mass index (BMI) ranging from 25 to 30 are considered as overweight, and those with a BMI above 30 are considered as as obese. Amid the OECD member countries, Mexico has become one with the highest prevalence in adult population, with 38.8% and 32.4% respectively. (OECD, 2015).
+Obesity and overweight are also a heavy burden on public health; they are important risk factors for a considerable number of chronic illnesses --notably cardiovascular diseases-- and are a leading cause of disability as well.
 
-The prevalence of mental health disorders has also increased importantly, contributing significantly to the burden of disease (WHO-AIMS Regional Report on Mental Health Systems in Latin America and the Caribbean. Washington DC: PAHO, 2013), 40.5% of this burden is attributable to clinical depression (J Am Acad Child Adolesc Psychiatry 2015,54(1):37-44). Anxiety is another mental health disorder that frecuently co-occurs with depression (), even showing a high genetic correlation. Both of these entities are associated with a substantial functional and cognitive impaiment, representing 4.19% of the total Disability-Adjusted Years (DALYs) in Mexico. 
+Given how common and relevant these health issues are, we were motivated to look deeper into them, and we asked ourselves: if someone has obesity or overweight, is she more likely to suffer depression or anxiety? How do obesity and overweight interact with mental health issues?   
 
-Young adults have the greatest prevalence of mental disorders, and are increasing in overweight and obesity rates. These health issues acquire more relevance, since only 18-34% of young people -with overweight, obesity or depression/anxiety symptoms- seek for professional help, and only 20-25% of those diagnosed, are receiving appropriate treatment. 
+If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we could help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students (the largest population we could access at the time). 
 
-Medical students are susceptible to a higher risk of depression,() anxiety and bad dietary habits, and are less likely to receive treatment. Previous studies have shown that medical students experience a higher rate of mental illness than general population, and that obesity is a problem among the medical population and health personnel. 
-
-The aim of our study is to asses the relationship of depressive and anxiety disorders with overweight and obesity in a young Mexican population. 
-
-The aim of our study is to asses the relationship of BMI to the presence of depression and anxiety in a young Mexican population 
-
-Explain the scientific background and rationale for the investigation being reported
-
-## Objectives
-
-We hypothesize that a higher body-mass index is positively correlated to the presence of depression and anxiety. We tested the null hypothesis that   
-
-If we could reject the null hypothesis, this study would strengthen the available evidence stating that overweight and obesity are correlated to depression and anxiety. 
-
-Testh bot, the hypothesis and the null hypothesis to strenght the available evidence stating that overweight and obesity are correlated to depression and anxiety. 
+In this report, I'm going to focus on casually communicating what we found, which is the basis of a scientific publication in the making.
 
 # Methods
 
@@ -46,9 +33,11 @@ Testh bot, the hypothesis and the null hypothesis to strenght the available evid
 
 * Describe the main limitations of the study.
 
-Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). Define statistical terms, abbreviations, and most symbols. Specify the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
+Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). 
 
-## Ethics Statement 
+We used R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-apple-darwin13.4.0 (64-bit) platform.  the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
+
+## Ethics Statement
 
 ## Study design
 
@@ -78,15 +67,15 @@ Describe any efforts to address potential sources of bias.
 Response bias is a general term for a wide range of cognitive biases that influence the responses of participants away from an accurate or truthful response (from (Wikipedia)[https://en.wikipedia.org/wiki/Response_bias#History_of_research])
 
 
-### Survivorship bias 
+### Survivorship bias
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-<img src="figure/unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" style="display: block; margin: auto;" />
+<img src="figure/NA distribution-1.png" title="plot of chunk NA distribution" alt="plot of chunk NA distribution" style="display: block; margin: auto;" />
 
 
 ## Study size
 
-Explain how the study size was arrived at 1376 
+Explain how the study size was arrived at 1376
 
 
 
@@ -112,7 +101,7 @@ For observational studies, authors are required to clearly specify (a) What spec
 
 # Results
 
-During fall 2014, we collected mental health data and sociodemographic survey data from Medical students enrolled at Universidad Autónoma de Guadalajara —a large private university that offers one of the oldest Medical School programmes in the country. 
+During fall 2014, we collected mental health data and sociodemographic survey data from Medical students enrolled at Universidad Autónoma de Guadalajara —a large private university that offers one of the oldest Medical School programmes in the country.
 
 We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
 
@@ -142,12 +131,12 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 ## Depressive disorders data
 
-<img src="figure/unnamed-chunk-20-1.png" title="plot of chunk unnamed-chunk-20" alt="plot of chunk unnamed-chunk-20" style="display: block; margin: auto;" />
+<img src="figure/Depression density scaled by severity-1.png" title="plot of chunk Depression density scaled by severity" alt="plot of chunk Depression density scaled by severity" style="display: block; margin: auto;" />
 
 
 ## Anxiety disorders data
 
-<img src="figure/unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" style="display: block; margin: auto;" />
+<img src="figure/Anxiety density scaled by severity-1.png" title="plot of chunk Anxiety density scaled by severity" alt="plot of chunk Anxiety density scaled by severity" style="display: block; margin: auto;" />
 
 
 
@@ -166,7 +155,5 @@ Report other analyses done—eg analyses of subgroups and interactions, and sens
 
 # Conclusions
 
-* Provide a general interpretation of the results with any important recommendations for future research.
-
-* [For a clinical trial, provide any trial identification number(s) and name(s) (e.g., trial registration number, protocol number or acronym).]
+Interpretation of the results with any important recommendations for future research.
 
