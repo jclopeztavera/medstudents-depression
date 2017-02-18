@@ -13,10 +13,95 @@ Given how common and relevant these health issues are, we were motivated to look
 
 If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we could help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students (the largest population we could access at the time). 
 
-In this report, I'm going to focus on casually communicating what we found, which is the basis of a scientific publication in the making.
+In this report, I'm focusing on communicating what we found, which is the basis of a more formal publication (in the making).
 
 # Methods
 
+We designed and run an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
+
+To achieve this goal, we randomly selected 1250 undergrad medical students from all grades (1 through 4). Grouping the students by grade, the number of students sampled is proportional to the number of students in the mathing grade group from the population. 
+
+With a response rate of 0.6%, we got to a final sample size of n = 757. In the following table, we show the preogression of how we arrived to the final sample size. 
+
+
+```r
+Grade <- 1:4
+N <- c(1299, 1285,1061,930)
+Intended_n <- c(339, 379, 296, 236)
+Sampled_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
+
+df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n)
+df <- rbind(df,colSums(df))
+df$Grade <- c(Grade, "total")
+
+kable(df, format = "html")
+```
+
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Grade </th>
+   <th style="text-align:right;"> N </th>
+   <th style="text-align:right;"> Intended_n </th>
+   <th style="text-align:right;"> Sampled_n </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> 1 </td>
+   <td style="text-align:right;"> 1299 </td>
+   <td style="text-align:right;"> 339 </td>
+   <td style="text-align:right;"> 263 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 2 </td>
+   <td style="text-align:right;"> 1285 </td>
+   <td style="text-align:right;"> 379 </td>
+   <td style="text-align:right;"> 184 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 3 </td>
+   <td style="text-align:right;"> 1061 </td>
+   <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> 136 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> 4 </td>
+   <td style="text-align:right;"> 930 </td>
+   <td style="text-align:right;"> 236 </td>
+   <td style="text-align:right;"> 174 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> total </td>
+   <td style="text-align:right;"> 4575 </td>
+   <td style="text-align:right;"> 1250 </td>
+   <td style="text-align:right;"> 757 </td>
+  </tr>
+</tbody>
+</table>
+
+The following diagram depicts how we arrived at the final sample size. 
+
+
+```r
+mermaid("
+graph LR
+        A(4575 students enrolled at uni)-->B(1250 students received a survey)
+        B-->C(783 students filled and returned a survey)
+        ", 
+        width = 600,
+        heigh = 400)
+```
+
+<!--html_preserve--><div id="htmlwidget-0aebf69a7849504399d1" style="width:600px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0aebf69a7849504399d1">{"x":{"diagram":"\ngraph LR\n        A(4575 students enrolled at uni)-->B(1250 students received a survey)\n        B-->C(783 students filled and returned a survey)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+
+
+We collected paper-based survey data from 783 undergrad medical students (from 1 through 4 school years), from which we discarded 
+
+The major limitation of the study was 
+
+During November 2013, in the sunny Guadalajara, we 
 * Describe the study participants or what was studied (e.g., patient population, cell lines; be as specific as possible, including numbers of individuals studied). Describe the study design, intervention if applicable, main methods used, primary outcome measure(s), and length of follow up if applicable.
 
 * [If appropriate, include how many participants were assessed out of those enrolled. For survey research, include the response rate.]
@@ -35,7 +120,7 @@ We used R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-appl
 
 ## Study design
 
-During winter of 2013, we designed a cross-sectional observational study to be conducted in the campus of Universidad Autónoma de Guadalajara, a big Mexican private university.
+During winter of 2013, we ru a cross-sectional observational study to be conducted in the campus of Universidad Autónoma de Guadalajara, a big Mexican private university.
 
 ## Setting
 
@@ -69,7 +154,6 @@ Survivorship bias, or survival bias, is the logical error of concentrating on th
 
 ## Study size
 
-Explain how the study size was arrived at 1376
 
 
 
@@ -95,7 +179,6 @@ For observational studies, authors are required to clearly specify (a) What spec
 
 # Results
 
-During fall 2014, we collected mental health data and sociodemographic survey data from Medical students enrolled at Universidad Autónoma de Guadalajara —a large private university that offers one of the oldest Medical School programmes in the country.
 
 We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
 
