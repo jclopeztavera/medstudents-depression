@@ -1,5 +1,11 @@
-# Depression and Anxiety in Medical Students: Analyses Report 
-Juan C. López Tavera  
+---
+title: "Depression and Anxiety in Medical Students: Analyses Report "
+author: Juan C. López Tavera
+output:
+  html_document:
+    keep_md: yes
+    theme: cosmo
+---
 
 
 
@@ -21,16 +27,17 @@ We designed and run an observational research study to assess the relation betwe
 
 To achieve this goal, we randomly selected 1250 undergrad medical students from all grades (1 through 4). Grouping the students by grade, the number of students sampled is proportional to the number of students in the mathing grade group from the population. 
 
-With a response rate of 0.6%, we got to a final sample size of n = 757. In the following table, we show the preogression of how we arrived to the final sample size. 
+With a response rate of 0.6%, we got to a final sample size of n = 783. In the following table, we show the preogression of how we arrived to the final sample size. 
 
 
 ```r
 Grade <- 1:4
 N <- c(1299, 1285,1061,930)
 Intended_n <- c(339, 379, 296, 236)
-Sampled_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
+Sampled_n <- tapply(X = raw_data$year, INDEX = raw_data$year, length) %>% as.numeric
+Complete_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
 
-df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n)
+df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n, Complete_n)
 df <- rbind(df,colSums(df))
 df$Grade <- c(Grade, "total")
 
@@ -44,6 +51,7 @@ kable(df, format = "html")
    <th style="text-align:right;"> N </th>
    <th style="text-align:right;"> Intended_n </th>
    <th style="text-align:right;"> Sampled_n </th>
+   <th style="text-align:right;"> Complete_n </th>
   </tr>
  </thead>
 <tbody>
@@ -51,30 +59,35 @@ kable(df, format = "html")
    <td style="text-align:left;"> 1 </td>
    <td style="text-align:right;"> 1299 </td>
    <td style="text-align:right;"> 339 </td>
+   <td style="text-align:right;"> 275 </td>
    <td style="text-align:right;"> 263 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 2 </td>
    <td style="text-align:right;"> 1285 </td>
    <td style="text-align:right;"> 379 </td>
+   <td style="text-align:right;"> 192 </td>
    <td style="text-align:right;"> 184 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 3 </td>
    <td style="text-align:right;"> 1061 </td>
    <td style="text-align:right;"> 296 </td>
+   <td style="text-align:right;"> 140 </td>
    <td style="text-align:right;"> 136 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> 4 </td>
    <td style="text-align:right;"> 930 </td>
    <td style="text-align:right;"> 236 </td>
+   <td style="text-align:right;"> 176 </td>
    <td style="text-align:right;"> 174 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> total </td>
    <td style="text-align:right;"> 4575 </td>
    <td style="text-align:right;"> 1250 </td>
+   <td style="text-align:right;"> 783 </td>
    <td style="text-align:right;"> 757 </td>
   </tr>
 </tbody>
@@ -88,13 +101,15 @@ mermaid("
 graph LR
         A(4575 students enrolled at uni)-->B(1250 students received a survey)
         B-->C(783 students filled and returned a survey)
+        C-->D(757 complete cases to analyze)
         ", 
         width = 600,
         heigh = 400)
 ```
 
-<!--html_preserve--><div id="htmlwidget-0aebf69a7849504399d1" style="width:600px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0aebf69a7849504399d1">{"x":{"diagram":"\ngraph LR\n        A(4575 students enrolled at uni)-->B(1250 students received a survey)\n        B-->C(783 students filled and returned a survey)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
+```
+## Error in loadNamespace(name): there is no package called 'webshot'
+```
 
 
 We collected paper-based survey data from 783 undergrad medical students (from 1 through 4 school years), from which we discarded 
@@ -149,7 +164,7 @@ Response bias is a general term for a wide range of cognitive biases that influe
 ### Survivorship bias
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-<img src="README_files/figure-html/NA distribution-1.png" style="display: block; margin: auto;" />
+<img src="figure/NA distribution-1.png" title="plot of chunk NA distribution" alt="plot of chunk NA distribution" style="display: block; margin: auto;" />
 
 
 ## Study size
@@ -208,12 +223,12 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 ## Depressive disorders data
 
-<img src="README_files/figure-html/Depression density scaled by severity-1.png" style="display: block; margin: auto;" />
+<img src="figure/Depression density scaled by severity-1.png" title="plot of chunk Depression density scaled by severity" alt="plot of chunk Depression density scaled by severity" style="display: block; margin: auto;" />
 
 
 ## Anxiety disorders data
 
-<img src="README_files/figure-html/Anxiety density scaled by severity-1.png" style="display: block; margin: auto;" />
+<img src="figure/Anxiety density scaled by severity-1.png" title="plot of chunk Anxiety density scaled by severity" alt="plot of chunk Anxiety density scaled by severity" style="display: block; margin: auto;" />
 
 
 

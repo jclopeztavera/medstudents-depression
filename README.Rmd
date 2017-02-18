@@ -32,15 +32,16 @@ We designed and run an observational research study to assess the relation betwe
 
 To achieve this goal, we randomly selected 1250 undergrad medical students from all grades (1 through 4). Grouping the students by grade, the number of students sampled is proportional to the number of students in the mathing grade group from the population. 
 
-With a response rate of `r round(nrow(data)/1250, 1)`%, we got to a final sample size of n = `r nrow(data)`. In the following table, we show the preogression of how we arrived to the final sample size. 
+With a response rate of `r round(nrow(raw_data)/1250, 1)`%, we got to a final sample size of n = `r nrow(raw_data)`. In the following table, we show the preogression of how we arrived to the final sample size. 
 
 ```{r table1 }
 Grade <- 1:4
 N <- c(1299, 1285,1061,930)
 Intended_n <- c(339, 379, 296, 236)
-Sampled_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
+Sampled_n <- tapply(X = raw_data$year, INDEX = raw_data$year, length) %>% as.numeric
+Complete_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
 
-df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n)
+df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n, Complete_n)
 df <- rbind(df,colSums(df))
 df$Grade <- c(Grade, "total")
 
@@ -55,6 +56,7 @@ mermaid("
 graph LR
         A(4575 students enrolled at uni)-->B(1250 students received a survey)
         B-->C(783 students filled and returned a survey)
+        C-->D(757 complete cases to analyze)
         ", 
         width = 600,
         heigh = 400)
