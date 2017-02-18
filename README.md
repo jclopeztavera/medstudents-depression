@@ -1,11 +1,5 @@
----
-title: "Depression and Anxiety in Medical Students: Analyses Report "
-author: Juan C. López Tavera
-output:
-  html_document:
-    keep_md: yes
-    theme: cosmo
----
+# Depression and Anxiety in Medical Students: Analyses Report 
+Juan C. López Tavera  
 
 
 
@@ -70,7 +64,7 @@ Response bias is a general term for a wide range of cognitive biases that influe
 ### Survivorship bias
 Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-<img src="figure/NA distribution-1.png" title="plot of chunk NA distribution" alt="plot of chunk NA distribution" style="display: block; margin: auto;" />
+<img src="README_files/figure-html/NA distribution-1.png" style="display: block; margin: auto;" />
 
 
 ## Study size
@@ -131,12 +125,12 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 ## Depressive disorders data
 
-<img src="figure/Depression density scaled by severity-1.png" title="plot of chunk Depression density scaled by severity" alt="plot of chunk Depression density scaled by severity" style="display: block; margin: auto;" />
+<img src="README_files/figure-html/Depression density scaled by severity-1.png" style="display: block; margin: auto;" />
 
 
 ## Anxiety disorders data
 
-<img src="figure/Anxiety density scaled by severity-1.png" title="plot of chunk Anxiety density scaled by severity" alt="plot of chunk Anxiety density scaled by severity" style="display: block; margin: auto;" />
+<img src="README_files/figure-html/Anxiety density scaled by severity-1.png" style="display: block; margin: auto;" />
 
 
 
