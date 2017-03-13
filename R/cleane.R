@@ -136,4 +136,4 @@ data$sleepy <-
 #write.csv(data, file = "~/github/medstudents-depression/data/processed/medstudents-depression.csv", row.names = FALSE)
 #dump("data", file = "~/github/medstudents-depression/data/processed/medstudents-depression.R") # uncomment for R-formatted data
 
-rm(i, loader, raw_data)
+rm(i)

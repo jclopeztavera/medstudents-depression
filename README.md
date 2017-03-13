@@ -19,7 +19,9 @@ In this report, I'm focusing on communicating what we found, which is the basis 
 
 We designed and ran an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
 
-To achieve this goal, we randomly selected 1250 undergrad medical students from all grades, from first through fourth. Grouped by grade enrollment, the number of sampled students was proportional to the actual number of students enrolled in each grade. 
+To achieve this goal, we randomly selected 1250 undergrad medical students from all grades, from first through fourth. Grouped by grade enrollment, the number of sampled students was proportional to the actual number of students enrolled in each grade.
+
+In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded 26 to get a final sample size of 757. [Open question: should we keep them?]
 
 With a response rate of 0.6%, we got to a final sample size of n = 783. In the following table, we show the preogression of how we arrived to the final sample size. 
 
@@ -74,83 +76,44 @@ With a response rate of 0.6%, we got to a final sample size of n = 783. In the f
 
 The following diagram depicts how we arrived at the final sample size. 
 
+<!--html_preserve--><div id="htmlwidget-370381cdea0c0f53fb9f" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-370381cdea0c0f53fb9f">{"x":{"diagram":"\ngraph LR\n        A(4575 students)-->B(1250 sampled students)\n        B-->C(783 returned surveys)\n        C-->D(757 complete surveys)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
-```r
-mermaid("
-graph LR
-        A(4575 students)-->B(1250 sampled students)
-        B-->C(783 returned surveys)
-        C-->D(757 complete surveys)
-        ")
-```
-
-<!--html_preserve--><div id="htmlwidget-1a1bb5a7646bb0a753c0" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1a1bb5a7646bb0a753c0">{"x":{"diagram":"\ngraph LR\n        A(4575 students)-->B(1250 sampled students)\n        B-->C(783 returned surveys)\n        C-->D(757 complete surveys)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
-
-
-In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded 26 to get a final sample size of 757. [Open question: should we keep them?]  
  
-The survey we distributed was a curation of: 
+
+
+
+  
+
+Distinguish prespecified from exploratory analyses, including subgroup analyses.
+
+## Ethics Statement
+
+
+## Variables
+
+Clearly define all outcomes, exposures, predictors, potential confounders, and effect modifiers. Give diagnostic criteria, if applicable
+
 * Socio-demographic questions and self-reported body measurements: age, binary gender, height and weight. 
 * Patient Health Questionnaire 9: Self-reported questionaire to spot cases of clinically detectable depressive disorders. 
 * General Anxiety Disorder 7: Self-reported questionaire to detect cases of clinical anxiety. 
 * Epworth Scale: To assess levels of self-reported day-sleepiness. 
 * Clinical attention history: Have you ever been diagnosed with X? Have you ever prescribed to treat X? 
 
-
-
-* [If critical to the understanding of the paper, describe how results were analyzed, i.e., which specific statistical tests were used.]
-
-* Describe the main outcomes and quantify the results using a measure of precision (e.g., 95% confidence interval). Describe any adverse events.
-
-* Describe the main limitations of the study.
-
-Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). 
-
-We used  R version 3.3.3 (2017-03-06) -- Another Canoe on a x86_64-apple-darwin13.4.0 (64-bit) platform. The packages used were  Distinguish prespecified from exploratory analyses, including subgroup analyses.
-
-## Ethics Statement
-
-## Study design
-
-During winter of 2013, we ru a cross-sectional observational study to be conducted in the campus of Universidad Autónoma de Guadalajara, a big Mexican private university.
-
-## Setting
-
-Describe the setting, locations, and relevant dates, including periods of recruitment, exposure, follow-up, and data collection
-
-## Participants
-
-Give the eligibility criteria, and the sources and methods of selection of participants
-
-## Variables
-
-Clearly define all outcomes, exposures, predictors, potential confounders, and effect modifiers. Give diagnostic criteria, if applicable
-
 ## Data sources and measurement
 
-For each variable of interest, give sources of data and details of methods of assessment (measurement). Describe comparability of assessment methods if there is more than one group
+About BMI, PHQ, GAD y Epworth
+
+See the [reprinted the original survey](medstudents-depression/reference/Cuestionario final español - Google Forms.pdf) in Spanish.
 
 ## Bias
 
 The main limitation of this study was [survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias]): what happened to the 493 missing observations? 
 
-A potential limitation of the study might be the length of the survey affecting the number of missing responses, but, as can be seen in the right plot, the number of NAs in the 
-
-
-
+Another potential limitation of the study might be the length of the survey affecting the number of missing responses, but, as can be seen in the right plot, the number of NAs in the data set is still low.  
 
 <img src="README_files/figure-html/NA distribution-1.png" style="display: block; margin: auto;" />
 
-
-## Study size
-
-
-
-
-## Quantitative variables
-
-Explain how quantitative variables were handled in the analyses. If applicable, describe which groupings were chosen and why
 
 ## Statistical methods
 
@@ -166,10 +129,9 @@ For observational studies, authors are required to clearly specify (a) What spec
 
 (e) Describe any sensitivity analyses
 
-(f) Technical details of the analysis
+I used R version 3.3.3 (2017-03-06) -- Another Canoe on a x86_64-apple-darwin13.4.0 (64-bit) platform. The packages used are: 
 
 # Results
-
 
 We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
 
