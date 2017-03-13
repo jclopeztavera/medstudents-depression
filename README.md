@@ -1,11 +1,5 @@
----
-title: "Depression and Anxiety in Medical Students: Analyses Report "
-author: Juan C. López Tavera
-output:
-  html_document:
-    keep_md: yes
-    theme: cosmo
----
+# Depression and Anxiety in Medical Students: Analyses Report 
+Juan C. López Tavera  
 
 
 
@@ -17,32 +11,17 @@ Obesity and overweight are also a heavy burden on public health; they are import
 
 Given how common and relevant these health issues are, we were motivated to look deeper into them, and we asked ourselves: if someone has obesity or overweight, is she more likely to suffer depression or anxiety? How do obesity and overweight interact with mental health issues?   
 
-If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we could help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students (the largest population we could access at the time). 
+If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we would help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students.
 
 In this report, I'm focusing on communicating what we found, which is the basis of a more formal publication (in the making).
 
 # Methods
 
-We designed and run an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
+We designed and ran an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
 
-To achieve this goal, we randomly selected 1250 undergrad medical students from all grades (1 through 4). Grouping the students by grade, the number of students sampled is proportional to the number of students in the mathing grade group from the population. 
+To achieve this goal, we randomly selected 1250 undergrad medical students from all grades, from first through fourth. Grouped by grade enrollment, the number of sampled students was proportional to the actual number of students enrolled in each grade. 
 
 With a response rate of 0.6%, we got to a final sample size of n = 783. In the following table, we show the preogression of how we arrived to the final sample size. 
-
-
-```r
-Grade <- 1:4
-N <- c(1299, 1285,1061,930)
-Intended_n <- c(339, 379, 296, 236)
-Sampled_n <- tapply(X = raw_data$year, INDEX = raw_data$year, length) %>% as.numeric
-Complete_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
-
-df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n, Complete_n)
-df <- rbind(df,colSums(df))
-df$Grade <- c(Grade, "total")
-
-kable(df, format = "html")
-```
 
 <table>
  <thead>
@@ -99,27 +78,26 @@ The following diagram depicts how we arrived at the final sample size.
 ```r
 mermaid("
 graph LR
-        A(4575 students enrolled at uni)-->B(1250 students received a survey)
-        B-->C(783 students filled and returned a survey)
-        C-->D(757 complete cases to analyze)
-        ", 
-        width = 600,
-        heigh = 400)
+        A(4575 students)-->B(1250 sampled students)
+        B-->C(783 returned surveys)
+        C-->D(757 complete surveys)
+        ")
 ```
 
-```
-## Error in loadNamespace(name): there is no package called 'webshot'
-```
+<!--html_preserve--><div id="htmlwidget-1a1bb5a7646bb0a753c0" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1a1bb5a7646bb0a753c0">{"x":{"diagram":"\ngraph LR\n        A(4575 students)-->B(1250 sampled students)\n        B-->C(783 returned surveys)\n        C-->D(757 complete surveys)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 
-We collected paper-based survey data from 783 undergrad medical students (from 1 through 4 school years), from which we discarded 
+In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded 26 to get a final sample size of 757. [Open question: should we keep them?]  
+ 
+The survey we distributed was a curation of: 
+* Socio-demographic questions and self-reported body measurements: age, binary gender, height and weight. 
+* Patient Health Questionnaire 9: Self-reported questionaire to spot cases of clinically detectable depressive disorders. 
+* General Anxiety Disorder 7: Self-reported questionaire to detect cases of clinical anxiety. 
+* Epworth Scale: To assess levels of self-reported day-sleepiness. 
+* Clinical attention history: Have you ever been diagnosed with X? Have you ever prescribed to treat X? 
 
-The major limitation of the study was 
 
-During November 2013, in the sunny Guadalajara, we 
-* Describe the study participants or what was studied (e.g., patient population, cell lines; be as specific as possible, including numbers of individuals studied). Describe the study design, intervention if applicable, main methods used, primary outcome measure(s), and length of follow up if applicable.
-
-* [If appropriate, include how many participants were assessed out of those enrolled. For survey research, include the response rate.]
 
 * [If critical to the understanding of the paper, describe how results were analyzed, i.e., which specific statistical tests were used.]
 
@@ -129,7 +107,7 @@ During November 2013, in the sunny Guadalajara, we
 
 Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). 
 
-We used R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-apple-darwin13.4.0 (64-bit) platform.  the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
+We used  R version 3.3.3 (2017-03-06) -- Another Canoe on a x86_64-apple-darwin13.4.0 (64-bit) platform. The packages used were  Distinguish prespecified from exploratory analyses, including subgroup analyses.
 
 ## Ethics Statement
 
@@ -155,16 +133,14 @@ For each variable of interest, give sources of data and details of methods of as
 
 ## Bias
 
-Describe any efforts to address potential sources of bias.
+The main limitation of this study was [survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias]): what happened to the 493 missing observations? 
 
-### Response Bias
-Response bias is a general term for a wide range of cognitive biases that influence the responses of participants away from an accurate or truthful response (from (Wikipedia)[https://en.wikipedia.org/wiki/Response_bias#History_of_research])
+A potential limitation of the study might be the length of the survey affecting the number of missing responses, but, as can be seen in the right plot, the number of NAs in the 
 
 
-### Survivorship bias
-Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
 
-<img src="figure/NA distribution-1.png" title="plot of chunk NA distribution" alt="plot of chunk NA distribution" style="display: block; margin: auto;" />
+
+<img src="README_files/figure-html/NA distribution-1.png" style="display: block; margin: auto;" />
 
 
 ## Study size
@@ -223,12 +199,12 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 ## Depressive disorders data
 
-<img src="figure/Depression density scaled by severity-1.png" title="plot of chunk Depression density scaled by severity" alt="plot of chunk Depression density scaled by severity" style="display: block; margin: auto;" />
+<img src="README_files/figure-html/Depression density scaled by severity-1.png" style="display: block; margin: auto;" />
 
 
 ## Anxiety disorders data
 
-<img src="figure/Anxiety density scaled by severity-1.png" title="plot of chunk Anxiety density scaled by severity" alt="plot of chunk Anxiety density scaled by severity" style="display: block; margin: auto;" />
+<img src="README_files/figure-html/Anxiety density scaled by severity-1.png" style="display: block; margin: auto;" />
 
 
 

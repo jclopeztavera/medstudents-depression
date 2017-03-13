@@ -10,6 +10,7 @@ output:
 ```{r settings, include=FALSE, warning=FALSE}
 source('~/github/medstudents-depression/R/loader.R')
 source('~/github/medstudents-depression/data/processed/medstudents-depression.R')
+source('~/github/medstudents-depression/R/cleane.R')
 loader("VIM", "ggplot2", "readr", "ggthemes", "knitr", "DiagrammeR")
 
 ```
@@ -22,19 +23,19 @@ Obesity and overweight are also a heavy burden on public health; they are import
 
 Given how common and relevant these health issues are, we were motivated to look deeper into them, and we asked ourselves: if someone has obesity or overweight, is she more likely to suffer depression or anxiety? How do obesity and overweight interact with mental health issues?   
 
-If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we could help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students (the largest population we could access at the time). 
+If we could reject the null hypothesis that a higher body-mass index (BMI) does not predict the presence of depression or anxiety disorders, we would help to more easily spotlight individuals who might need further psychiatric assistance. To test this hypothesis, we designed an observational study to measure demographic, BMI and mental health variables of Mexican Medical Students.
 
 In this report, I'm focusing on communicating what we found, which is the basis of a more formal publication (in the making).
 
 # Methods
 
-We designed and run an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
+We designed and ran an observational research study to assess the relation between clinically detectable depressive and anxiety disorders and body-mass index. 
 
-To achieve this goal, we randomly selected 1250 undergrad medical students from all grades (1 through 4). Grouping the students by grade, the number of students sampled is proportional to the number of students in the mathing grade group from the population. 
+To achieve this goal, we randomly selected 1250 undergrad medical students from all grades, from first through fourth. Grouped by grade enrollment, the number of sampled students was proportional to the actual number of students enrolled in each grade. 
 
 With a response rate of `r round(nrow(raw_data)/1250, 1)`%, we got to a final sample size of n = `r nrow(raw_data)`. In the following table, we show the preogression of how we arrived to the final sample size. 
 
-```{r table1 }
+```{r table1, echo=FALSE}
 Grade <- 1:4
 N <- c(1299, 1285,1061,930)
 Intended_n <- c(339, 379, 296, 236)
@@ -54,24 +55,24 @@ The following diagram depicts how we arrived at the final sample size.
 ```{r sample size flowchart}
 mermaid("
 graph LR
-        A(4575 students enrolled at uni)-->B(1250 students received a survey)
-        B-->C(783 students filled and returned a survey)
-        C-->D(757 complete cases to analyze)
-        ", 
-        width = 600,
-        heigh = 400)
+        A(4575 students)-->B(1250 sampled students)
+        B-->C(783 returned surveys)
+        C-->D(757 complete surveys)
+        ")
 
 ```
 
 
-We collected paper-based survey data from 783 undergrad medical students (from 1 through 4 school years), from which we discarded 
+In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded `r nrow(raw_data) - complete.cases(raw_data) %>% sum` to get a final sample size of `r nrow(data)`. [Open question: should we keep them?]  
+ 
+The survey we distributed was a curation of: 
+* Socio-demographic questions and self-reported body measurements: age, binary gender, height and weight. 
+* Patient Health Questionnaire 9: Self-reported questionaire to spot cases of clinically detectable depressive disorders. 
+* General Anxiety Disorder 7: Self-reported questionaire to detect cases of clinical anxiety. 
+* Epworth Scale: To assess levels of self-reported day-sleepiness. 
+* Clinical attention history: Have you ever been diagnosed with X? Have you ever prescribed to treat X? 
 
-The major limitation of the study was 
 
-During November 2013, in the sunny Guadalajara, we 
-* Describe the study participants or what was studied (e.g., patient population, cell lines; be as specific as possible, including numbers of individuals studied). Describe the study design, intervention if applicable, main methods used, primary outcome measure(s), and length of follow up if applicable.
-
-* [If appropriate, include how many participants were assessed out of those enrolled. For survey research, include the response rate.]
 
 * [If critical to the understanding of the paper, describe how results were analyzed, i.e., which specific statistical tests were used.]
 
@@ -81,7 +82,7 @@ During November 2013, in the sunny Guadalajara, we
 
 Describe statistical methods with enough detail to enable a knowledgeable reader with access to the original data to judge its appropriateness for the study and to verify the reported results. When possible, quantify findings and present them with appropriate indicators of measurement error or uncertainty (such as confidence intervals). Avoid relying solely on statistical hypothesis testing, such as P values, which fail to convey important information about effect size and precision of estimates. References for the design of the study and statistical methods should be to standard works when possible (with pages stated). 
 
-We used R version 3.3.2 (2016-10-31) -- "Sincere Pumpkin Patch" on a x86_64-apple-darwin13.4.0 (64-bit) platform.  the statistical software package(s) and versions used. Distinguish prespecified from exploratory analyses, including subgroup analyses.
+We used  `r R.Version()$version.string` -- `r R.Version()$nickname` on a x86_64-apple-darwin13.4.0 (64-bit) platform. The packages used were  Distinguish prespecified from exploratory analyses, including subgroup analyses.
 
 ## Ethics Statement
 
@@ -107,18 +108,16 @@ For each variable of interest, give sources of data and details of methods of as
 
 ## Bias
 
-Describe any efforts to address potential sources of bias.
+The main limitation of this study was [survivorship bias](https://en.wikipedia.org/wiki/Survivorship_bias]): what happened to the `r 1250 - nrow(data)` missing observations? 
 
-### Response Bias
-Response bias is a general term for a wide range of cognitive biases that influence the responses of participants away from an accurate or truthful response (from (Wikipedia)[https://en.wikipedia.org/wiki/Response_bias#History_of_research])
+A potential limitation of the study might be the length of the survey affecting the number of missing responses, but, as can be seen in the right plot, the number of NAs in the 
 
 
-### Survivorship bias
-Survivorship bias, or survival bias, is the logical error of concentrating on the people or things that "survived" some process and inadvertently overlooking those that did not because of their lack of visibility. This can lead to false conclusions in several different ways. The survivors may be actual people, as in a medical study, or could be companies or research subjects or applicants for a job, or anything that must make it past some selection process to be considered further (from (Wikipedia)[https://en.wikipedia.org/wiki/Survivorship_bias])
+
 
 ```{r NA distribution, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
 par(mar = c(2,2,2,2), lty = 0)
-  VIM::aggr(x = raw_data,
+nas_plot <- VIM::aggr(x = raw_data,
     col = c('powderblue', 'tomato1'),
     numbers = TRUE,
     sortVars = FALSE,
@@ -126,7 +125,7 @@ par(mar = c(2,2,2,2), lty = 0)
     cex.axis = .5,
     gap = 3,
     ylab = c("Histogram of missing data", "Pattern of missing data")
-  )
+    )
 
 ```
 
