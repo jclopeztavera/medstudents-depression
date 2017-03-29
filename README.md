@@ -23,7 +23,7 @@ To achieve this goal, we randomly selected 1250 undergrad medical students from 
 
 In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded 26 to get a final sample size of 757. [Open question: should we keep them?]
 
-With a response rate of 0.6%, we got to a final sample size of n = 783. In the following table, we show the preogression of how we arrived to the final sample size. 
+With a response rate of 60%, we got to a final sample size of n = 783. In the following table, we show the preogression of how we arrived to the final sample size. 
 
 <table>
  <thead>
@@ -76,19 +76,12 @@ With a response rate of 0.6%, we got to a final sample size of n = 783. In the f
 
 The following diagram depicts how we arrived at the final sample size. 
 
-<!--html_preserve--><div id="htmlwidget-370381cdea0c0f53fb9f" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-370381cdea0c0f53fb9f">{"x":{"diagram":"\ngraph LR\n        A(4575 students)-->B(1250 sampled students)\n        B-->C(783 returned surveys)\n        C-->D(757 complete surveys)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
-
- 
-
-
-
-  
+<!--html_preserve--><div id="htmlwidget-3dafa81e403ffd0b2c25" style="width:672px;height:480px;" class="DiagrammeR html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3dafa81e403ffd0b2c25">{"x":{"diagram":"\ngraph LR\n        A(4575 students)-->B(1250 sampled students)\n        B-->C(783 returned surveys)\n        C-->D(757 complete surveys)\n        "},"evals":[],"jsHooks":[]}</script><!--/html_preserve-->
 
 Distinguish prespecified from exploratory analyses, including subgroup analyses.
 
 ## Ethics Statement
-
 
 ## Variables
 
@@ -114,7 +107,6 @@ Another potential limitation of the study might be the length of the survey affe
 
 <img src="README_files/figure-html/NA distribution-1.png" style="display: block; margin: auto;" />
 
-
 ## Statistical methods
 
 For observational studies, authors are required to clearly specify (a) What specific hypotheses the researchers intended to test, and the analytical methods by which they planned to test them; (b) What analyses they actually performed; and (c) When reported analyses differ from those that were planned, authors must provide transparent explanations for differences that affect the reliability of the study's results
@@ -133,7 +125,7 @@ I used R version 3.3.3 (2017-03-06) -- Another Canoe on a x86_64-apple-darwin13.
 
 # Results
 
-We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
+We randomly selected 1250 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
 
 The Results section should include all primary and secondary outcome measures analyzed. The section may be divided into subsections, each with a concise subheading. Tables and figures central to the study should be included in the main paper. The Results section should be written in past tense.
 
@@ -163,12 +155,9 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 <img src="README_files/figure-html/Depression density scaled by severity-1.png" style="display: block; margin: auto;" />
 
-
 ## Anxiety disorders data
 
 <img src="README_files/figure-html/Anxiety density scaled by severity-1.png" style="display: block; margin: auto;" />
-
-
 
 ## Main results
 
@@ -182,8 +171,6 @@ For smaller data sets and certain data types, authors may provide their data wit
 
 Report other analyses done—eg analyses of subgroups and interactions, and sensitivity analyses
 
-
 # Conclusions
 
 Interpretation of the results with any important recommendations for future research.
-

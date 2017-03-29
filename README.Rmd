@@ -35,7 +35,7 @@ To achieve this goal, we randomly selected 1250 undergrad medical students from 
 
 In November 2013, in _sunny_ Guadalajara during a in a four-day window, we personally distributed 1250 surveys to undergraduate medical studentes, and collected 783 undergrad medical students (from 1 through 4 school years), from which we discarded `r nrow(raw_data) - complete.cases(raw_data) %>% sum` to get a final sample size of `r nrow(data)`. [Open question: should we keep them?]
 
-With a response rate of `r round(nrow(raw_data)/1250, 1)`%, we got to a final sample size of n = `r nrow(raw_data)`. In the following table, we show the preogression of how we arrived to the final sample size. 
+With a response rate of `r round(nrow(raw_data) / 1250, 1) * 100`%, we got to a final sample size of n = `r nrow(raw_data)`. In the following table, we show the preogression of how we arrived to the final sample size. 
 
 ```{r table1, echo=FALSE}
 Grade <- 1:4
@@ -47,6 +47,8 @@ Complete_n <- tapply(X = data$year, INDEX = data$year, length) %>% as.numeric
 df <- cbind.data.frame(Grade, N, Intended_n, Sampled_n, Complete_n)
 df <- rbind(df,colSums(df))
 df$Grade <- c(Grade, "total")
+
+write_csv(x = df, path = "~/github/medstudents-depression/data/processed/sample.csv")
 
 kable(df, format = "html")
 
@@ -65,16 +67,9 @@ graph LR
 
 ```
 
- 
-
-
-
-  
-
 Distinguish prespecified from exploratory analyses, including subgroup analyses.
 
 ## Ethics Statement
-
 
 ## Variables
 
@@ -113,7 +108,6 @@ nas_plot <- VIM::aggr(x = raw_data,
 
 ```
 
-
 ## Statistical methods
 
 For observational studies, authors are required to clearly specify (a) What specific hypotheses the researchers intended to test, and the analytical methods by which they planned to test them; (b) What analyses they actually performed; and (c) When reported analyses differ from those that were planned, authors must provide transparent explanations for differences that affect the reliability of the study's results
@@ -132,7 +126,7 @@ I used `r R.Version()$version.string` -- `r R.Version()$nickname` on a x86_64-ap
 
 # Results
 
-We randomly selected 1200 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
+We randomly selected 1250 Medical students out of ~3000 enrolled at the time, and stratified this target population by school year, weighting the subsampling process according to the size of each stratum, which made the subsample size of proportional to the subpopulation size. We got a population (see Table 1)
 
 The Results section should include all primary and secondary outcome measures analyzed. The section may be divided into subsections, each with a concise subheading. Tables and figures central to the study should be included in the main paper. The Results section should be written in past tense.
 
@@ -180,7 +174,6 @@ ddp
 
 ```
 
-
 ## Anxiety disorders data
 
 ```{r Anxiety density scaled by severity, echo=FALSE, cache=TRUE, warning=FALSE, fig.align='center', fig.width = 13, fig.height= 8}
@@ -199,8 +192,6 @@ gdp
 
 ```
 
-
-
 ## Main results
 
 (a) Give unadjusted estimates and, if applicable, confounder-adjusted estimates and their precision (eg, 95% confidence interval). Make clear which confounders were adjusted for and why they were included
@@ -213,8 +204,6 @@ gdp
 
 Report other analyses done—eg analyses of subgroups and interactions, and sensitivity analyses
 
-
 # Conclusions
 
 Interpretation of the results with any important recommendations for future research.
-
