@@ -1,7 +1,7 @@
 version: 0.8
-data_loading: TRUE
+data_loading: FALSE
 data_loading_header: TRUE
-data_ignore:
+data_ignore: raw/
 cache_loading: TRUE
 recursive_loading: TRUE
 munging: TRUE
@@ -13,4 +13,4 @@ as_factors: FALSE
 data_tables: FALSE
 attach_internal_libraries: FALSE
 cache_loaded_data:  TRUE
-sticky_variables: NONE
+sticky_variables: depdata
