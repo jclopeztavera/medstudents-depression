@@ -1,0 +1,16 @@
+version: 0.8
+data_loading: FALSE
+data_loading_header: TRUE
+data_ignore: raw/
+cache_loading: TRUE
+recursive_loading: TRUE
+munging: TRUE
+logging: FALSE
+logging_level: INFO
+load_libraries: TRUE
+libraries: tidyverse, rmarkdown, shiny
+as_factors: FALSE
+data_tables: FALSE
+attach_internal_libraries: FALSE
+cache_loaded_data:  TRUE
+sticky_variables: depdata
