@@ -1,7 +1,23 @@
-# Analysis of Mexican Medical Students' PHQ-9/GAD-7/Epworth
-# Part 1: Getting, Cleaning, and Preparing the Dataset
-# This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
-rm(list = ls())
+#' ---
+#' title: Analysis of Mexican medical students' mental health data: PHQ-9, GAD-7, Epworth data preparation
+#' author: "Juan C. López Tavera, R&D at Knotion"
+#' date: "2018-09-07"
+#' license: MIT License Copyright (c) 2016-2018 Juan C. López Tavera
+#' ---
+
+#' During fall 2014, we collected sociodemographic and mental health data
+#' from Mexican medical students enrolled in the Medicine programme at
+#' Universidad Autonoma de Guadalajara, Guadalajara Jalisco, Mexico.
+#' We collected:
+#' * sociodemographic data
+#' * height and weigth data
+#' * depression data using the PHQ-9 instrument (spanish version)
+#' * anxiety data using the GAD-7 instrument (spanish version)
+#' * daily sleepness data using the Epworth survey (spanish version)
+#' * school and study related habits using
+#' The objective of this script is to get and prepare the original data set
+#' in a reproducible way for subsequent steps in the analysis process.
+
 
 raw_data <-
     read_csv(file = "https://files.figshare.com/1893389/depression_data.csv")
@@ -82,7 +98,7 @@ raw_data <- raw_data %>%
     )
 
 
-raw_data %>%
+data <- raw_data %>%
     select(
         medschool_year = year,
         age,
@@ -104,8 +120,10 @@ raw_data %>%
         sleepy
     )
 
+survey_data <- raw_data %>%
+  select(, )
+
 # Tidy dataset, ready to go!
 write_csv(x = raw_data, path = "data/tidy/tidy_depression_anxiety.csv")
 saveRDS(object = raw_data, file = "data/tidy/tidy_depression_anxiety.rds")
 
-rm(list = ls())

@@ -1,4 +1,4 @@
-version: 0.8
+version: 0.8.2
 data_loading: FALSE
 data_loading_header: TRUE
 data_ignore: raw/
@@ -12,5 +12,5 @@ libraries: tidyverse, rmarkdown, shiny
 as_factors: FALSE
 data_tables: FALSE
 attach_internal_libraries: FALSE
-cache_loaded_data:  TRUE
+cache_loaded_data: TRUE
 sticky_variables: depdata

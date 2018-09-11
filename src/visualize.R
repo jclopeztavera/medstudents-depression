@@ -2,13 +2,11 @@
 # Part 4: Data visualization
 # This code is licensed under a MIT License Copyright (c) 2016 Juan C. López-Tavera
 
-source('~/github/medstudents-depression/R/loader.R')
-source('~/github/medstudents-depression/data/processed/medstudents-depression.R')
 loader("VIM", "ggplot2", "readr", "ggthemes")
 
 ## visualizing missing data
 raw_data <-
-  read_csv("~/github/medstudents-depression/data/raw/medstudents-depression-raw.csv")
+  read_csv(file = "data/raw/raw_data.csv")
 names(raw_data) <-
   c(
     "School-year",
