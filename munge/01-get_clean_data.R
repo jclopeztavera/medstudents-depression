@@ -36,6 +36,8 @@ if (!file.exists("data/raw/depression_data.csv")) {
 raw_data[raw_data["age"] == 12, ]$age <-
   round(tapply(raw_data$age, raw_data$year, mean)[raw_data[raw_data["age"] == 12, ]$year])
 
+raw_data[which(raw_data["gad5"] == 10),]$gad5 <- 1
+
 ## Adding ID and getting secondary variables: bmi and questionnaire scores
 data <- raw_data %>%
   rownames_to_column("id") %>%
