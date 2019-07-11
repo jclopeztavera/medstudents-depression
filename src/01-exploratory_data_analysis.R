@@ -17,6 +17,24 @@ if (!require(tidyverse)) {
   library(tidyverse)
 }
 
+if (!require(DataExplorer)) {
+  install.packages("DataExplorer")
+  library(DataExplorer)
+}
+
+# Data exploration with DataExplorer ----
+DataExplorer::plot_missing(depression_anxiety_survey_data)
+DataExplorer::introduce(depression_anxiety_survey_data) %>% gather()
+## We find an acceptable amount of missing values - 98% of ocomplete rows
+## We also find a clear pattern in increasing NAs as the survey goes on. Lesson learned, it could have been a shorter survey.
+
+vis_miss(depression_anxiety_data)
+
+DataExplorer::plot_missing(depression_anxiety_data)
+DataExplorer::introduce(depression_anxiety_data) %>% gather()
+# we find an acceptable amount of missing values - 97% of complete rows
+
+
 # Distributions ----
 ## Exploring if the distributions of numeric vars are normal or not,
 ## According to the Shapiro-Wilk Normality Test
@@ -109,7 +127,7 @@ depression_anxiety_survey_data %>%
 
 #### 0s become more frequent along the questionnaire, while 1s become less frequent. 2s peak at the middle of the questionnaire, 3s and NAs seem to remain constant
 
-## Anxiety questionnaire data
+### Anxiety questionnaire data
 depression_anxiety_survey_data %>%
   select(-c(phq_score:anxiety_treatment)) %>%
   gather("key", "value", -id) %>%
@@ -122,8 +140,10 @@ depression_anxiety_survey_data %>%
   geom_bar(stat = "count") +
   coord_flip() +
   facet_grid(key~.)
+#### Graphically, there's no evident pattern in survey responses.
+#### 1s and 0s are the most common responses
 
-## Sleepiness data
+### Sleepiness data
 depression_anxiety_survey_data %>%
   select(-c(phq_score:anxiety_treatment)) %>%
   gather("key", "value", -id) %>%
@@ -137,10 +157,12 @@ depression_anxiety_survey_data %>%
   coord_flip() +
   facet_grid(key~.)
 
+#### We observe some peaks in 0s in questions 3,6,8. 1s are common as well.
 
-# Reality checks ----
+# Reality checksquestions ----
 ## Age should increase with school year...
 qplot(x = school_year, y = age, data = depression_anxiety_data, geom = "smooth")
 ### and it does
 
-
+# Correlations and patterns
+pairs(phq_score ~ gad_score + epworth_score + bmi + school_year, data = depression_anxiety_data %>% select_if(is.numeric))

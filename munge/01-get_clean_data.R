@@ -83,7 +83,7 @@ data <- data %>%
     ),
     anxiety_severity = case_when(
       gad_score >= 0 & gad_score < 5 ~ "None-minimal",
-      gad_score > 5 & gad_score < 10 ~ "Mild",
+      gad_score >= 5 & gad_score < 10 ~ "Mild",
       gad_score >= 10 & gad_score < 15 ~ "Moderate",
       gad_score >= 15 ~ "Severe"
     ),
